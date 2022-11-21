@@ -7,6 +7,6 @@ export const ImageBackStyle = styled.img`
     margin-left: auto;
     margin-right: auto;
     width: 800px;
-    height: 600px;
+    height: 500px;
     content:url(${require('../../assets/notfound.webp')});
 `

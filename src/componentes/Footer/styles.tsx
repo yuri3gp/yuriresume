@@ -13,6 +13,6 @@ export const StyledLink = styled.a`
   color : white;
   text-decoration: none;
   &:hover{
-    background-color: #4848;
+    background-color: #0696ea87;
   }
 `

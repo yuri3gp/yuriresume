@@ -1,29 +1,48 @@
 export const resume = {
-    personalData:
+    personal:
     {
         name: "Yuri Rodrigues Teixeira",
         phone: "+55(31)99730-0623",
+        email: "yuri3gp@gmail.com",
+        github: "github.com/yuri3gp",
+        country: "Brazil"
     },
-    resume: [
+    skills:
+    {
+        languages: ["PHP", "Javascript", "Java", "C"],
+        frameworks: ["Laravel", "Express", "React"],
+    },
+    experience: [
         {
-            language: "pt",
-            about: "2013 foi quando consegui meu primeiro emprego na área de desenvolvimento. Tenho experiência com sistemas rodando em nuvem, embarcados e mobile. Todos com milhares de clientes e enorme tráfego de dados. Trabalhando com equipes gigantes e bilingues."
+            company : "",
+            start: "",
+            end:"",
+            office: []
         },
         {
-            language: "en",
-            about: ""
+            company : "",
+            start: "",
+            end:"",
+            office: []
         },
         {
-            language: "es",
+            company : "",
+            start: "",
+            end:"",
+            office: []
         }
     ],
-    skills: [
-        "PHP",
-        "Javascript",
-        "Sql",
-        "Html",
-        "Css",
-        "Deploy",
-        "Git",
-    ]
+    education: [
+        {
+            institution: "",
+            start: "",
+            end:""
+        },
+        {
+            institution: "",
+            start: "",
+            end:""
+        }
+    ],
+    languages: []
 }

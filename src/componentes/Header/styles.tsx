@@ -15,7 +15,7 @@ export const LiStyle = styled.li`
   padding: 14px 16px;
   text-decoration: none;
   &:hover{
-    background-color: #4848;
+    background-color: #0696ea87;
   }
 `
 export const AStyle = styled.a`

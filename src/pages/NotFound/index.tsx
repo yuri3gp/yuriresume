@@ -1,13 +1,12 @@
 import React from 'react';
 import { AboutStyle,ImageBackStyle } from './styles';
 
-export default function NoPage()
+export default function NotFound()
 {
     return(
         <>
             <AboutStyle>
-                <ImageBackStyle>
-                </ImageBackStyle>
+                <ImageBackStyle/>
             </AboutStyle>
         </>
     )

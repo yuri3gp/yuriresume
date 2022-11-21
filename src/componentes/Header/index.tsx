@@ -8,11 +8,9 @@ export default function Header()
         <>
             <UlStyle>
                 {dataMenu.map((item,index)=>(
-                    
                 <Link className="linkRoute" to={`/${item}`}>
-                    <LiStyle key={index}>{item}</LiStyle>
+                    <LiStyle>{item}</LiStyle>
                 </Link>
-                    
                 ))}
             </UlStyle>
             <Outlet />
