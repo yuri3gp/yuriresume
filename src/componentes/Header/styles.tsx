@@ -26,3 +26,11 @@ export const AStyle = styled.a`
   text-decoration: none;
   font-family: 'Courier New', Courier, monospace;
 `
+
+export const HeaderStyled = styled.header`
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+`
