@@ -1,6 +1,6 @@
 import React from "react"
 import { Outlet, Link } from "react-router-dom"
-import { HeaderStyle, UlStyle, LiStyle,LinkStyle,Logo } from './styles'
+import { HeaderStyle, UlStyle, LiStyle,LinkStyle } from './styles'
 import {data} from '../../database/data'
 
 export default function Header() {
