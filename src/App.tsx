@@ -6,6 +6,7 @@ import { personal, experience, languages } from './database/resume'
 export default function App() {
     return (
         <>
+        
             <Personal name={personal.name} goal={personal.goal} />
             {/* <Skills skills={skills}/> */}
             <Experience experience={experience}/>
