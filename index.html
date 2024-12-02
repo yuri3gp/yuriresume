@@ -1,16 +1,370 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/x-icon" href="/src/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <title>CCS Bilhetica</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+<html>
+<head>
+    <title>Resume</title>
+    <script src="https://unpkg.com/react/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    <style>
+        body {
+            font-family: 'Merriweather', serif;
+            margin: 2cm 3cm 2cm 3cm; /* ABNT padrão: 3cm esquerda e direita, 2cm em cima e embaixo */
+        }
+        .title {
+            font-family: 'Open Sans', sans-serif;
+        }
+        .name {
+            font-family: 'Merriweather', serif;
+        }
+    </style>
+</head>
+<body class="bg-blue-50 p-4">
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    <script type="text/babel">
+        const { Container, Grid, Typography, Link, Box, Icon, Menu, MenuItem, Switch, FormControlLabel, Paper } = MaterialUI;
+        const { useState } = React;
+
+        const data = {
+            "pt": {
+                "nome": "Yuri Teixeira",
+                "descricao": "Analista e Desenvolvedor de Sistemas - Universidade Ampli. Tenho experiência com desenvolvimento web, nuvem e gerenciamento de dados.",
+                "contato": {
+                    "endereco": "Rua Tomé de Souza, 449",
+                    "cidade": "Sabará, Minas Gerais, 34555-130",
+                    "telefone": "+55 31 99730-0623",
+                    "email": "yuri3gp@gmail.com",
+                    "link": "https://github.com/yuri3gp"
+                },
+                "experiencia": [
+                    {
+                        "empresa": "Datasmart - Serviços de Consultadoria Informática Lda.",
+                        "local": "Lisboa",
+                        "cargo": "Desenvolvedor Full Stack",
+                        "data": "Novembro de 2024 – Até o momento",
+                        "descricao": "Desenvolvimento"
+                    },
+                    {
+                        "empresa": "Mundomídia LTDA",
+                        "local": "Belo Horizonte",
+                        "cargo": "Desenvolvedor Full Stack",
+                        "data": "Abril de 2023 – Novembro de 2024",
+                        "descricao": "Desenvolvimento e manutenção de sistema de gerenciamento de oficina, imobiliária e revenda de veículos. Desenvolvimento Web, Mobile, Criação de microsserviços e integrações com outras APIs."
+                    },
+                    {
+                        "empresa": "Sillion Serviços de Tecnologia LTDA",
+                        "local": "Belo Horizonte",
+                        "cargo": "Desenvolvedor Full Stack",
+                        "data": "Outubro de 2020 - Dezembro de 2022",
+                        "descricao": "Desenvolvimento e manutenção de sistema de rastreamento de veículo e de todos os dados e tecnologias envolvidas. Desenvolvimento Web, Mobile, Criação de microsserviços."
+                    },
+                    {
+                        "empresa": "Escola Técnica de Informática",
+                        "local": "Belo Horizonte",
+                        "cargo": "Professor de Informática",
+                        "data": "Novembro de 2014 - Dezembro de 2019",
+                        "descricao": "Ministração de aulas práticas e teóricas em desenvolvimento de software, redes de computadores e manutenção de hardware. Responsável por criar materiais didáticos, orientar projetos práticos e acompanhar o desempenho dos alunos em atividades técnicas."
+                    },
+                    {
+                        "empresa": "Sidim Sistemas LTDA",
+                        "local": "Belo Horizonte",
+                        "cargo": "Desenvolvedor Full Stack",
+                        "data": "Março de 2013 - Março de 2014",
+                        "descricao": "Desenvolvimento e manutenção de sistemas de gestão pública municipal, nas áreas da saúde, educação e assistência social."
+                    }
+                ],
+                "formacao": [
+                    {
+                        "instituicao": "Ampli",
+                        "curso": "Tecnólogo",
+                        "data": "OUT DE 2020 - OUT DE 2022",
+                        "descricao": "Curso superior de tecnologia da informação"
+                    },
+                    {
+                        "instituicao": "Colégio Augustus",
+                        "curso": "Técnico",
+                        "data": "ABRIL DE 2013 - ABRIL DE 2015",
+                        "descricao": "Curso técnico de informática"
+                    }
+                ],
+                "competencias": {
+                    "linguagens": "C#, PHP, Node.js",
+                    "frameworks": ".NET, Laravel, Express.js",
+                    "front_end": "jQuery, React",
+                    "banco_dados": "MySQL, SQL Server, PostgreSQL, MongoDB"
+                },
+                "idiomas": {
+                    "ingles": "Avançado",
+                    "espanhol": "Avançado"
+                },
+                "interesses": "Desenvolvimento de novas tecnologias e automação de processos.",
+                "menus": {
+                    "experiencia": "Experiência",
+                    "formacao": "Formação",
+                    "competencias": "Competências",
+                    "idiomas": "Idiomas",
+                    "interesses": "Interesses",
+                    "portugues": "Português",
+                    "ingles": "Inglês",
+                    "darkMode": "Tema"
+                }
+            },
+            "en": {
+                "nome": "Yuri Teixeira",
+                "descricao": "System Analyst and Developer - Ampli University. I have experience in web development, cloud, and data management.",
+                "contato": {
+                    "endereco": "Rua Tomé de Souza, 449",
+                    "cidade": "Sabará, Minas Gerais, 34555-130",
+                    "telefone": "+55 31 99730-0623",
+                    "email": "yuri3gp@gmail.com",
+                    "link": "https://github.com/yuri3gp"
+                },
+                "experiencia": [
+                    {
+                        "empresa": "Datasmart - IT Consulting Services Ltd.",
+                        "local": "Lisbon",
+                        "cargo": "Full Stack Developer",
+                        "data": "November 2024 – Present",
+                        "descricao": "Development"
+                    },
+                    {
+                        "empresa": "Mundomídia LTDA",
+                        "local": "Belo Horizonte",
+                        "cargo": "Full Stack Developer",
+                        "data": "April 2023 – November 2024",
+                        "descricao": "Development and maintenance of workshop, real estate, and vehicle resale management systems. Web, Mobile development, creation of microservices, and integration with other APIs."
+                    },
+                    {
+                        "empresa": "Sillion Serviços de Tecnologia LTDA",
+                        "local": "Belo Horizonte",
+                        "cargo": "Full Stack Developer",
+                        "data": "October 2020 - December 2022",
+                        "descricao": "Development and maintenance of vehicle tracking systems and all the data and technologies involved. Web, Mobile development, creation of microservices."
+                    },
+                    {
+                        "empresa": "Technical School of Informatics",
+                        "local": "Belo Horizonte",
+                        "cargo": "Computer Science Teacher",
+                        "data": "November 2014 - December 2019",
+                        "descricao": "Teaching practical and theoretical classes in software development, computer networks, and hardware maintenance. Responsible for creating teaching materials, guiding practical projects, and monitoring students' performance in technical activities."
+                    },
+                    {
+                        "empresa": "Sidim Sistemas LTDA",
+                        "local": "Belo Horizonte",
+                        "cargo": "Full Stack Developer",
+                        "data": "March 2013 - March 2014",
+                        "descricao": "Development and maintenance of municipal public management systems in health, education, and social assistance."
+                    }
+                ],
+                "formacao": [
+                    {
+                        "instituicao": "Ampli",
+                        "curso": "Technologist",
+                        "data": "OCT 2020 - OCT 2022",
+                        "descricao": "Higher education in Information Technology."
+                    },
+                    {
+                        "instituicao": "Colégio Augustus",
+                        "curso": "Technical",
+                        "data": "APRIL 2013 - APRIL 2015",
+                        "descricao": "Technical course in computer science."
+                    }
+                ],
+                "competencias": {
+                    "linguagens": "C#, PHP, Node.js",
+                    "frameworks": ".NET, Laravel, Express.js",
+                    "front_end": "jQuery, React",
+                    "banco_dados": "MySQL, SQL Server, PostgreSQL, MongoDB"
+                },
+                "idiomas": {
+                    "ingles": "Advanced",
+                    "espanhol": "Advanced"
+                },
+                "interesses": "Development of new technologies and process automation.",
+                "menus": {
+                    "experiencia": "Experience",
+                    "formacao": "Education",
+                    "competencias": "Skills",
+                    "idiomas": "Languages",
+                    "interesses": "Interests",
+                    "portugues": "Portuguese",
+                    "ingles": "English",
+                    "darkMode": "Theme"
+                }
+            }
+        };
+
+        const App = () => {
+            const [anchorEl, setAnchorEl] = useState(null);
+            const [darkMode, setDarkMode] = useState(false);
+            const [language, setLanguage] = useState('pt');
+
+            const handleClick = (event) => {
+                setAnchorEl(event.currentTarget);
+            };
+
+            const handleClose = () => {
+                setAnchorEl(null);
+            };
+
+            const toggleDarkMode = () => {
+                setDarkMode(!darkMode);
+            };
+
+            const changeLanguage = (lang) => {
+                setLanguage(lang);
+                handleClose();
+            };
+
+            const content = data[language];
+
+            return (
+                <Container maxWidth="md" className={`p-8 shadow-md ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'}`} style={{ margin: '50px auto' }}>
+                    <Grid container spacing={4}>
+                        <Grid item xs={12} md={8}>
+                            <Typography variant="h4" component="h1" gutterBottom onClick={handleClick} className="name" style={{ cursor: 'pointer' }}>
+                                {content.nome}
+                            </Typography>
+                            <Menu
+                                anchorEl={anchorEl}
+                                keepMounted
+                                open={Boolean(anchorEl)}
+                                onClose={handleClose}
+                            >
+                                <MenuItem>
+                                    <FormControlLabel
+                                        control={<Switch checked={darkMode} onChange={toggleDarkMode} />}
+                                        label={content.menus.darkMode}
+                                    />
+                                </MenuItem>
+                                <MenuItem onClick={() => changeLanguage('pt')}>{content.menus.portugues}</MenuItem>
+                                <MenuItem onClick={() => changeLanguage('en')}>{content.menus.ingles}</MenuItem>
+                            </Menu>
+                            <Typography variant="body1" gutterBottom>
+                                {content.descricao}
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={12} md={4}>
+                            <Box display="flex" alignItems="center" mb={1}>
+                                <Icon className="material-icons">location_on</Icon>
+                                <Typography variant="body1" className="ml-2">
+                                    {content.contato.endereco}<br/>
+                                    {content.contato.cidade}
+                                </Typography>
+                            </Box>
+                            <Box display="flex" alignItems="center" mb={1}>
+                                <Icon className="material-icons">phone</Icon>
+                                <Typography variant="body1" className="ml-2">
+                                    {content.contato.telefone}
+                                </Typography>
+                            </Box>
+                            <Box display="flex" alignItems="center" mb={1}>
+                                <Icon className="material-icons">email</Icon>
+                                <Typography variant="body1" className="ml-2">
+                                    {content.contato.email}
+                                </Typography>
+                            </Box>
+                            <Box display="flex" alignItems="center" mb={1}>
+                                <Icon className="material-icons">link</Icon>
+                                <Link href={content.contato.link} color="primary" className="ml-2">
+                                    {content.contato.link}
+                                </Link>
+                            </Box>
+                        </Grid>
+                    </Grid>
+                    <Grid container spacing={4} className="mt-8">
+                        <Grid item xs={12} md={8}>
+                            <Paper elevation={3} className="p-4 mb-4">
+                                <Typography variant="h6" component="h2" color="primary" className="title" gutterBottom>
+                                    {content.menus.experiencia}
+                                </Typography>
+                                {content.experiencia.map((exp, index) => (
+                                    <Box mb={4} key={index}>
+                                        <Typography variant="subtitle1" component="h3">
+                                            <span className="font-bold">{exp.empresa}</span>, {exp.local} — {exp.cargo}
+                                        </Typography>
+                                        <Typography variant="body2" color="textSecondary">
+                                            {exp.data}
+                                        </Typography>
+                                        <Typography variant="body1">
+                                            {exp.descricao}
+                                        </Typography>
+                                    </Box>
+                                ))}
+                            </Paper>
+                            <Paper elevation={3} className="p-4 mb-4">
+                                <Typography variant="h6" component="h2" color="primary" className="title" gutterBottom>
+                                    {content.menus.formacao}
+                                </Typography>
+                                {content.formacao.map((edu, index) => (
+                                    <Box mb={4} key={index}>
+                                        <Typography variant="subtitle1" component="h3" className="font-bold">
+                                            {edu.instituicao}, {edu.curso}
+                                        </Typography>
+                                        <Typography variant="body2" color="textSecondary">
+                                            {edu.data}
+                                        </Typography>
+                                        <Typography variant="body1">
+                                            {edu.descricao}
+                                        </Typography>
+                                    </Box>
+                                ))}
+                            </Paper>
+                        </Grid>
+                        <Grid item xs={12} md={4}>
+                            <Paper elevation={3} className="p-4 mb-4">
+                                <Typography variant="h6" component="h2" color="primary" className="title" gutterBottom>
+                                    {content.menus.competencias}
+                                </Typography>
+                                <Box mb={4}>
+                                    <Typography variant="body1">
+                                        <span className="font-bold">{language === 'pt' ? 'Linguagens:' : 'Languages:'}</span> {content.competencias.linguagens}
+                                    </Typography>
+                                    <Typography variant="body1">
+                                        <span className="font-bold">{language === 'pt' ? 'Frameworks:' : 'Frameworks:'}</span> {content.competencias.frameworks}
+                                    </Typography>
+                                    <Typography variant="body1">
+                                        <span className="font-bold">{language === 'pt' ? 'Front-End:' : 'Front-End:'}</span> {content.competencias.front_end}
+                                    </Typography>
+                                    <Typography variant="body1">
+                                        <span className="font-bold">{language === 'pt' ? 'Banco de dados:' : 'Databases:'}</span> {content.competencias.banco_dados}
+                                    </Typography>
+                                </Box>
+                            </Paper>
+                            <Paper elevation={3} className="p-4 mb-4">
+                                <Typography variant="h6" component="h2" color="primary" className="title" gutterBottom>
+                                    {content.menus.idiomas}
+                                </Typography>
+                                <Box mb={4}>
+                                    <Typography variant="body1">
+                                        <span className="font-bold">{language === 'pt' ? 'Inglês -' : 'English -'}</span> {content.idiomas.ingles}
+                                    </Typography>
+                                    <Typography variant="body1">
+                                        <span className="font-bold">{language === 'pt' ? 'Espanhol -' : 'Spanish -'}</span> {content.idiomas.espanhol}
+                                    </Typography>
+                                </Box>
+                            </Paper>
+                            <Paper elevation={3} className="p-4 mb-4">
+                                <Typography variant="h6" component="h2" color="primary" className="title" gutterBottom>
+                                    {content.menus.interesses}
+                                </Typography>
+                                <Box mb={4}>
+                                    <Typography variant="body1">
+                                        {content.interesses}
+                                    </Typography>
+                                </Box>
+                            </Paper>
+                        </Grid>
+                    </Grid>
+                </Container>
+            );
+        };
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+    <script src="https://unpkg.com/@material-ui/core/umd/material-ui.development.js"></script>
+</body>
 </html>
