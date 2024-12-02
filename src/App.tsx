@@ -1,17 +1,25 @@
-import Personal from './components/Personal'
-import Experience from './components/Experience'
-import Languages from './components/Languages'
-import { personal, experience, languages } from './database/resume'
+import { Box } from "@mui/material";
+import { Route, Routes } from "react-router-dom";
+import { Layout } from "./components/Layout";
+import { NotFoundCard } from "./components/NotFoundCard";
+import { Home } from "./pages/Home";
 
-export default function App() {
-    return (
-        <>
-        
-            <Personal name={personal.name} goal={personal.goal} />
-            {/* <Skills skills={skills}/> */}
-            <Experience experience={experience}/>
-            {/* <Education education={education}/> */}
-            <Languages languages={languages}/>
-        </>
-    )
+const App = () => {
+  return (
+    <Box
+      component="main"
+      sx={{
+        height: "100vh"
+      }}
+    >
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="*" element={<NotFoundCard />} />
+        </Routes>
+      </Layout>
+    </Box>
+  )
 }
+
+export default App;
