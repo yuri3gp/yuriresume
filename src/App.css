@@ -1,0 +1,30 @@
+body {
+  font-family: 'Merriweather', serif;
+  margin: 2cm 3cm 2cm 3cm;
+  background-color: #1a202c;
+}
+
+.title {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.name {
+  font-family: 'Merriweather', serif;
+}
+
+.dark-mode {
+  background-color: #1a202c;
+  color: #e2e8f0;
+}
+
+.dark-mode .MuiPaper-root {
+  background-color: #2d3748;
+}
+
+.dark-mode .MuiTypography-colorTextSecondary {
+  color: #a0aec0;
+}
+
+.dark-mode .MuiTypography-body1 {
+  color: #e2e8f0;
+}
